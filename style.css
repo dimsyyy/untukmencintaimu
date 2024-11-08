@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900&display=swap');
+
+body {
+    font-family: "Rubik", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(100%);
+    background-image: url('img/Patrik.png');
+    background-size: cover;
+    background-position: center right;
+    transition: background-position .6s ease-in-out, filter .6s ease-in-out;
+}
+.background-dimmed {
+    filter: brightness(60%) blur(5px); /* Kecerahan berkurang setelah transisi */
+}
+
+/* ubah body jadi ke kiri */
+.background-shifted {
+    background-position: left;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: inherit;
+    z-index: -2;
+    transition: filter 1s ease;
+    filter: brightness(-30%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.buttonplay button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-shadow: 0 0 4px #bdbdbd;
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+.buttonplay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    z-index: 2;
+}
+
+.lyric {
+    font-size: 1.5em;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    opacity: 0; 
+    transition: opacity .5s;
+    position: relative;
+    z-index: 3;
+    pointer-events: none; 
+    text-shadow: 0 0 10px #bdbdbd;
+}
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
